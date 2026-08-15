@@ -12,15 +12,17 @@ struct Clue1View: View {
         NavigationStack{
             VStack {
                 Text("Mr Beast has many subscribers")
-                    .font(.largeTitle)
                 Text(">380 000 000")
                     .font(.largeTitle)
-                NavigationLink(destination: ContentView()) {
-                    Text("Go back")
-                }
+                Text("Go Back")
+                    .padding()
+                    .background(Color.white)
+                    .foregroundColor(.blue)
+                    .cornerRadius(10)
+                
             }
             .padding()
         }
     }
-
+    
 }
