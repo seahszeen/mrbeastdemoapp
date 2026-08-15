@@ -1,19 +1,28 @@
 //
-//  Clue1View.swift
-//  Query
+//  ContentView.swift
+//  mangows
 //
-//  Created by T Krobot on 7/8/26.
+//  Created by T Krobot on 8/8/26.
 //
 
 import SwiftUI
-import SwiftData
 
 struct Clue1View: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack {
+                Text("Mr Beast has many subscribers")
+                Text(">380 000 000")
+                    .font(.largeTitle)
+                Text("Go Back")
+                    .padding()
+                    .background(Color.white)
+                    .foregroundColor(.blue)
+                    .cornerRadius(10)
+                
+            }
+            .padding()
+        }
     }
-}
-
-#Preview {
-    Clue1View()
+    
 }
