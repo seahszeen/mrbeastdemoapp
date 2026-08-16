@@ -6,10 +6,60 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct Clue2View: View {
+    @Environment(\.modelContext) var modelContext
+    @Query(filter: #Predicate<Persons> { $0.subscribers > 380_000_000 }, sort: \Persons.subscribers, order: .reverse)
+    var persons: [Persons]
+    @State var showPersonsList: Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                Spacer()
+                    .frame(height:100)
+                Text("🚨 CLUE 2 🚨")
+                Text ("MrBeast has the most subscribers")
+                Text ("Top 1 🥇")
+                Button {
+                    loadSampleData()
+                    showPersonsList = true
+                }label: {
+                    Text("Filter")
+                        .padding(7)
+                        .bold()
+                        .background(.red)
+                        .foregroundStyle(.white)
+                        .clipShape(Capsule())
+                }
+            }
+            if showPersonsList {
+                List {
+                    ForEach(persons) { person in
+                        VStack (alignment: .leading) {
+                            Text(person.name)
+                            Text(person.subscribers, format: .number)
+                            Text(person.location)
+                            
+                        }
+                    }
+                }
+                NavigationLink(destination: EndView()) {
+                    Text("Find MrBeast")
+                }
+                .padding()
+            }
+        }
+    }
+    
+    func loadSampleData() {
+        if !persons.isEmpty {
+            return
+        }
+        for person in samplePeople {
+            modelContext.insert(person)
+        }
     }
 }
 
