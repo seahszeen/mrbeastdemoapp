@@ -10,30 +10,28 @@ import SwiftData
 
 struct Clue2View: View {
     @Environment(\.modelContext) var modelContext
-    @Query(filter: #Predicate<Persons> { $0.subscribers > 380_000_000 }, sort: \Persons.subscribers, order: .reverse)
-    var persons: [Persons]
-    @State var showPersonsList: Bool = false
+    @Query(filter: #Predicate<Persons> { $0.subscribers > 380_000_000 }, sort: \Persons.subscribers, order: .reverse) var persons: [Persons]
+    @State private var showPersonsList: Bool = false
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Spacer()
-                    .frame(height:100)
-                Text("🚨 CLUE 2 🚨")
-                Text ("MrBeast has the most subscribers")
-                Text ("Top 1 🥇")
-                Button {
-                    loadSampleData()
-                    showPersonsList = true
-                }label: {
-                    Text("Filter")
-                        .padding(7)
-                        .bold()
-                        .background(.red)
-                        .foregroundStyle(.white)
-                        .clipShape(Capsule())
-                }
+        VStack {
+            Spacer()
+                .frame(height:100)
+            Text("🚨 CLUE 2 🚨")
+            Text ("MrBeast has the most subscribers")
+            Text ("Top 1 🥇")
+            Button {
+                loadSampleData()
+                showPersonsList = true
+            }label: {
+                Text("Filter")
+                    .padding(7)
+                    .bold()
+                    .background(.red)
+                    .foregroundStyle(.white)
+                    .clipShape(Capsule())
             }
+        }
             if showPersonsList {
                 List {
                     ForEach(persons) { person in
@@ -49,9 +47,9 @@ struct Clue2View: View {
                     Text("Find MrBeast")
                 }
                 .padding()
-            }
         }
     }
+    
     
     func loadSampleData() {
         if !persons.isEmpty {

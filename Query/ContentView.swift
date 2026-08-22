@@ -33,22 +33,22 @@ struct ContentView: View {
                         .clipShape(Capsule())
                 }
             }
-            if showPersonsList {
-                List {
-                    ForEach(persons) { person in
-                        VStack (alignment: .leading) {
-                            Text(person.name)
-                            Text(person.subscribers, format: .number)
-                            Text(person.location)
-                            
+                if showPersonsList {
+                    List {
+                        ForEach(persons) { person in
+                            VStack (alignment: .leading) {
+                                Text(person.name)
+                                Text(person.subscribers, format: .number)
+                                Text(person.location)
+                                
+                            }
                         }
                     }
+                    NavigationLink(destination: Clue1View()) {
+                        Text("Clue 1")
                 }
-                NavigationLink(destination: Clue1View()) {
-                    Text("Clue 1")
+                    .padding()
                 }
-                .padding()
-            }
         }
     }
     

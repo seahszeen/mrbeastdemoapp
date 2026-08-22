@@ -9,7 +9,17 @@ import SwiftUI
 
 struct EndView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Mr Beast name:")
+        Text("Jimmy Donaldson")
+        Spacer()
+            .frame(height: 20)
+        Text("No. of Subscribers:")
+        Text("399 000 000")
+        Spacer()
+            .frame(height: 20)
+        Text("Location:")
+        Text("USA")
+        
     }
 }
 
