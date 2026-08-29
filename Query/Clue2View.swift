@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct Clue2View: View {
-    // Receive the filtered results from Clue 1.
+    // pass in persons as a dependency
     let persons: [Persons]
     @State private var showPersonsList: Bool = false
 
-    // `>` sorts subscriber counts from largest to smallest.
+    // We put up a computed property here, i.e. a version that's dependent on the perrsons property
+    // The $0 > $1 thing means we sort from biggest to smallest; flip to reverse
     private var sortedPersons: [Persons] {
         persons.sorted { $0.subscribers > $1.subscribers }
     }

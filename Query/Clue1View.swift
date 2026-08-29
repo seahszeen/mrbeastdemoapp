@@ -44,7 +44,7 @@ struct Clue1View: View {
                     }
                 }
 
-                // Pass the filtered results to Clue 2 instead of querying them again.
+                // restored your previous NavigationLink, and passing in persons
                 NavigationLink(destination: Clue2View(persons: persons)) {
                     Text("Clue 2")
                 }
