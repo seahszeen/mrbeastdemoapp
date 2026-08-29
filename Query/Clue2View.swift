@@ -15,23 +15,23 @@ struct Clue2View: View {
     
     var body: some View {
         VStack {
-            Spacer()
-                .frame(height:100)
-            Text("🚨 CLUE 2 🚨")
-            Text ("MrBeast has the most subscribers")
-            Text ("Top 1 🥇")
-            Button {
-                loadSampleData()
-                showPersonsList = true
-            }label: {
-                Text("Sort")
-                    .padding(7)
-                    .bold()
-                    .background(.red)
-                    .foregroundStyle(.white)
-                    .clipShape(Capsule())
+            VStack {
+                Spacer()
+                    .frame(height:100)
+                Text("🚨 CLUE 2 🚨")
+                Text ("MrBeast has the most subscribers")
+                Text ("Top 1 🥇")
+                Button {
+                    showPersonsList = true
+                }label: {
+                    Text("Sort")
+                        .padding(7)
+                        .bold()
+                        .background(.red)
+                        .foregroundStyle(.white)
+                        .clipShape(Capsule())
+                }
             }
-        }
             if showPersonsList {
                 List {
                     ForEach(persons) { person in
@@ -47,18 +47,11 @@ struct Clue2View: View {
                     Text("Find MrBeast")
                 }
                 .padding()
+            }
         }
     }
     
     
-    func loadSampleData() {
-        if !persons.isEmpty {
-            return
-        }
-        for person in samplePeople {
-            modelContext.insert(person)
-        }
-    }
 }
 
 #Preview {

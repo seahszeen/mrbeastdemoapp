@@ -16,23 +16,26 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Spacer()
-                    .frame(height:100)
-                Text("🚨 BREAKING NEWS 🚨")
-                Text ("MrBeast has disappeared! 😱")
-                Text ("He is hiding somewhere is our database...")
-                Button {
-                    loadSampleData()
-                    showPersonsList = true
-                }label: {
-                    Text("Show Persons")
-                        .padding(7)
-                        .bold()
-                        .background(.red)
-                        .foregroundStyle(.white)
-                        .clipShape(Capsule())
+                VStack {
+                    Spacer()
+                        .frame(height:100)
+                    Text("🚨 BREAKING NEWS 🚨")
+                    Text ("MrBeast has disappeared! 😱")
+                    Text ("He is hiding somewhere is our database...")
+                    Button {
+                        loadSampleData()
+                        withAnimation {
+                            showPersonsList = true
+                        }
+                    }label: {
+                        Text("Show Persons")
+                            .padding(7)
+                            .bold()
+                            .background(.red)
+                            .foregroundStyle(.white)
+                            .clipShape(Capsule())
+                    }
                 }
-            }
                 if showPersonsList {
                     List {
                         ForEach(persons) { person in
@@ -46,9 +49,10 @@ struct ContentView: View {
                     }
                     NavigationLink(destination: Clue1View()) {
                         Text("Clue 1")
-                }
+                    }
                     .padding()
                 }
+            }
         }
     }
     
