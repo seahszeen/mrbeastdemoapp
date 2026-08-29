@@ -46,6 +46,7 @@ struct Clue1View: View {
             NavigationLink(destination: Clue2View()) {
                 Text("Clue 2")
             }
+            
             .padding()
         }
     }

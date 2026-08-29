@@ -31,7 +31,7 @@ let samplePeople = [
     Persons(name: "Michael King", subscribers: 383_000_000, location: "New Zealand"),
 
     // Suspect
-    Persons(name: "Jimmy Donaldson", subscribers: 399_000_000, location: "USA"),
+    Persons(name: "Jimmy Donaldson", subscribers: 399_000_000, location: "Pulau Ubin"),
 
     Persons(name: "Scarlett Wright", subscribers: 378_000_000, location: "Norway"),
     Persons(name: "Alexander Scott", subscribers: 387_500_000, location: "Sweden"),

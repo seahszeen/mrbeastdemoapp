@@ -24,7 +24,7 @@ struct Clue2View: View {
                 loadSampleData()
                 showPersonsList = true
             }label: {
-                Text("Filter")
+                Text("Sort")
                     .padding(7)
                     .bold()
                     .background(.red)
