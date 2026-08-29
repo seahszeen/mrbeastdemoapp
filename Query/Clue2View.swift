@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct Clue2View: View {
-    @Environment(\.modelContext) var modelContext
-    @Query(filter: #Predicate<Persons> { $0.subscribers > 380_000_000 }, sort: \Persons.subscribers, order: .reverse) var persons: [Persons]
+    // Receive the filtered results from Clue 1.
+    let persons: [Persons]
     @State private var showPersonsList: Bool = false
+
+    // `>` sorts subscriber counts from largest to smallest.
+    private var sortedPersons: [Persons] {
+        persons.sorted { $0.subscribers > $1.subscribers }
+    }
     
     var body: some View {
         VStack {
@@ -34,7 +38,7 @@ struct Clue2View: View {
             }
             if showPersonsList {
                 List {
-                    ForEach(persons) { person in
+                    ForEach(sortedPersons) { person in
                         VStack (alignment: .leading) {
                             Text(person.name)
                             Text(person.subscribers, format: .number)
@@ -55,5 +59,5 @@ struct Clue2View: View {
 }
 
 #Preview {
-    Clue2View()
+    Clue2View(persons: [])
 }
