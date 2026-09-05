@@ -43,16 +43,11 @@ struct Clue1View: View {
                         }
                     }
                 }
-                
-                NavigationLink {
-                    Clue2View()
-                } label: {
+
+                // restored your previous NavigationLink, and passing in persons
+                NavigationLink(destination: Clue2View(persons: persons)) {
                     Text("Clue 2")
                 }
-
-//                NavigationLink(destination: Clue2View()) {
-//                    Text("Clue 2")
-//                }
                 
                 .padding()
             }
@@ -63,5 +58,3 @@ struct Clue1View: View {
 #Preview {
     Clue1View()
 }
-
-
